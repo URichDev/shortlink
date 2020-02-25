@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div>
+            <h1>Long Link Form Edit</h1>
+        </div>
+        <form method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{ object }}"?</p>
+            </div>
+            <button class="btn btn-success" type="submit" name="submit">Confirm</button>
+        </form>
+
+    </main>
+{% endblock %}

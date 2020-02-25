@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div>
+            <h1>Profile</h1>
+        </div>
+        {% if user.is_authenticated %}
+        <p><b>Username</b> - {{user.username}}</p>
+        <p><b>First name</b> - {{user.first_name}}</p>
+        <p><b>Last name</b> - {{user.last_name}}</p>
+        <p><b>Email</b> - {{user.email}}</p>
+        <p><b>Plan</b> - {{user.plan}}</p>
+        {% else %}
+            <p> У вас нет прав</p>
+        {% endif %}
+    </main>
+{% endblock %}

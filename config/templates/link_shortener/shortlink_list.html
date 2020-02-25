@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div>
+        <h1>My Links</h1>
+    </div>
+    <div class="tablet">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">id_link</th>
+                <th scope="col">short_link</th>
+                <th scope="col">long_link</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for link in object_list %}
+            <tr>
+                <th>{{link.id}}</th>
+                <td>{{link.short_link}}</td>
+                <td>{{link.long_link}}</td>
+                <td>
+                    <a href="{% url 'link_shortener:update' link.id %}"><i class="fa fa-pencil-square-o"
+                                                                           aria-hidden="true"></i></a>
+                </td>
+                <td>
+                    <a href="{% url 'link_shortener:delete' link.id %}"><i class="fa fa-trash"
+                                                                           aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</main>
+{% endblock %}
